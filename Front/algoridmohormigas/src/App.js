@@ -1,12 +1,15 @@
-import logo from './logo.svg';
+
+import { useContext } from 'react';
 import './App.css';
 import Recuadrohormigas from './recuadroHormigas/Recuadrohormigas';
 
-
+import { DataContext } from './variables/DataContext';
 
 function App() {
 
+  const contextData = useContext(DataContext)
 
+  const { setlistapuntos, listapuntos } = useContext(DataContext);
  
   return (
  
@@ -26,15 +29,61 @@ function App() {
         </div>
 
         <div class="col-5 text-center"  style={{ backgroundColor: '#e33b2c' }} >
-
+          
         </div>
 
       </div>
 
-      {/* datos de la simulacion*/}
+      {/* datos */}
       <div class= "row">
-        <h3> Aqui van los datos de la simulacion </h3>
+      
+        {/* lista de puntos */}
+        <div class= "col">  
+          <h3> Tabla de puntos</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Posicion x</th>
+                <th scope="col">Posicion y</th>
+                <th scope="col">Eliminar punto</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+             {listapuntos.map((point, index) => (
+              //<div key={index}>{`X: ${point.xRelativeToDiv}, Y: ${point.yRelativeToDiv}`}</div>
+              <tr>
+                <th scope='row'>{index}</th>
+                <td>{point.xRelativeToDiv}</td>
+                <td>{point.yRelativeToDiv}</td>
+                <td> <button type="button" class="btn btn-warning">Borrar punto</button> </td>
+              </tr>
+
+            ))}
+              
+            </tbody>
+          </table>
+        </div>
+
+        {/* matriz de adyacencia */}
+        <div class="col">
+          
+        <div class="col">
+          <h3> Matriz de adyacencia </h3>
+          
+        </div>
+
+        <div class="col">
+          <h3> Matriz de feromonas </h3>
+          
+        </div>
+
+
+        </div>
+
         
+
       </div>
 
 
