@@ -7,7 +7,6 @@ import { DataContext } from '../variables/DataContext';
 
 const Recuadrohormigas = () => {
   
-  
   const { setlistapuntos, listapuntos } = useContext(DataContext);
   const {matrizAdya,setmatrizAdya} = useContext(DataContext);
   const { matrizFer,setmatrizFer} = useContext(DataContext);
@@ -55,7 +54,7 @@ const Recuadrohormigas = () => {
 
   return (
     <div class="divPrincipal"  onClick={handleClick}>
-  
+      {listapuntos.map( (punto,index) => (<div class="puntopos" style={{ top: `${punto.yRelativeToDiv}px`, left: `${punto.xRelativeToDiv}px` }}></div> ) )}
     </div>
   );
 };

@@ -42,7 +42,7 @@ function App() {
 
       {/*app funcionando | opciones configurables */}
       <div class= "row mt-5 mb-5 " >
-        <div class="col text-center"  style={{ backgroundColor: '#e36b2c' }} >
+        <div class="col text-center"   >
           <Recuadrohormigas/>
         </div>
 
@@ -58,7 +58,7 @@ function App() {
         {/* lista de puntos */}
         <div class= "col">  
           <h3> Tabla de puntos</h3>
-          <table class="table">
+          <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -89,7 +89,7 @@ function App() {
           
         <div class="col">
           <h3> Matriz de adyacencia </h3>
-          <table class="table">
+          <table class="table table-bordered table-striped">
 
             <tbody>
               {matrizAdya.map((lista,index) => (
@@ -107,7 +107,7 @@ function App() {
 
         <div class="col">
           <h3> Matriz de feromonas </h3>
-          <table class="table">
+          <table class="table table-striped table-bordered">
             <tbody>
               {matrizFer.map((lista,index) => (
                 <tr>
