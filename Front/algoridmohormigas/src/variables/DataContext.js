@@ -7,8 +7,13 @@ export function DataContextProvider(props) {
   const [listapuntos,setlistapuntos] = useState([]);
   const [matrizAdya, setmatrizAdya] = useState([[]]);
 
+  const [matrizFer,setmatrizFer] = useState([[]]);
+
+  const valorFermona = useState(1);
+
+
   return (
-    <DataContext.Provider value={ {listapuntos, setlistapuntos , matrizAdya,setmatrizAdya} }>
+    <DataContext.Provider value={ {valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
       {props.children}
     </DataContext.Provider>
   );

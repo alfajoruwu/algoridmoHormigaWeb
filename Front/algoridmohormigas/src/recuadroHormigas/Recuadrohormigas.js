@@ -9,7 +9,15 @@ const Recuadrohormigas = () => {
   
   
   const { setlistapuntos, listapuntos } = useContext(DataContext);
-  
+  const {matrizAdya,setmatrizAdya} = useContext(DataContext);
+  const { matrizFer,setmatrizFer} = useContext(DataContext);
+  const valorFermona = useContext(DataContext);
+
+  function calculardistancia(x1,y1,x2,y2){
+    const distancia = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    return Math.round(distancia);
+  }
+
   const handleClick = (e) => {
     const xRelativeToDiv = e.clientX + window.scrollX;
     const yRelativeToDiv = e.clientY + window.scrollY;
@@ -20,15 +28,34 @@ const Recuadrohormigas = () => {
 
     setlistapuntos([...listapuntos, newClick]);
 
-    console.log(listapuntos)
-
+    
+    
   };
+
+  useEffect(() => {
+    // Utiliza la versión actualizada de listapuntos para calcular la matriz de adyacencia
+    setmatrizAdya(
+      listapuntos.map((punto1, index1) => (
+        listapuntos.map((punto2, index2) => (
+          calculardistancia(punto1.xRelativeToDiv, punto1.yRelativeToDiv, punto2.xRelativeToDiv, punto2.yRelativeToDiv)
+        ))
+      ))
+    );
+    
+    setmatrizFer(
+      listapuntos.map((punto1, index1) => (
+        listapuntos.map((punto2, index2) => (
+          {valorFermona}
+        ))
+      ))
+    )
+    
+
+  }, [listapuntos, setmatrizAdya]);
 
   return (
     <div class="divPrincipal"  onClick={handleClick}>
-      {listapuntos.map((point, index) => (
-      <div key={index}>{`X: ${point.xRelativeToDiv}, Y: ${point.yRelativeToDiv}`}</div>
-    ))}
+  
     </div>
   );
 };

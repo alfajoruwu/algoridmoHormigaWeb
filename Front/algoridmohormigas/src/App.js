@@ -10,7 +10,14 @@ function App() {
   const contextData = useContext(DataContext)
 
   const { setlistapuntos, listapuntos } = useContext(DataContext);
- 
+  
+  const {matrizAdya,setmatrizAdya} = useContext(DataContext);
+
+  const {matrizFer} = useContext(DataContext);
+
+  const {valorFermona} = useContext(DataContext);
+
+
   return (
  
 
@@ -71,12 +78,37 @@ function App() {
           
         <div class="col">
           <h3> Matriz de adyacencia </h3>
-          
+          <table class="table">
+
+            <tbody>
+              {matrizAdya.map((lista,index) => (
+                <tr>
+                {lista.map((elemento,index) => (
+                  <td> {elemento}</td>
+                ) )}
+
+                </tr>
+              ))}
+              
+            </tbody>
+          </table>
         </div>
 
         <div class="col">
           <h3> Matriz de feromonas </h3>
-          
+          <table class="table">
+            <tbody>
+              {matrizFer.map((lista,index) => (
+                <tr>
+                {lista.map((elemento,index) => (
+                  <td> {valorFermona}</td>
+                ) )}
+
+                </tr>
+              ))}
+              
+            </tbody>
+          </table>
         </div>
 
 
