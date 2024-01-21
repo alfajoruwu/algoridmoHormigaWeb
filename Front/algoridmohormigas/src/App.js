@@ -18,6 +18,17 @@ function App() {
   const {valorFermona} = useContext(DataContext);
 
 
+  const handleBorrarPunto = (indice) => {
+    // Crea una copia del array original para no modificarlo directamente
+    const nuevaLista = [...listapuntos];
+  
+    // Utiliza splice para eliminar el elemento en el índice proporcionado
+    nuevaLista.splice(indice, 1);
+  
+    // Actualiza el estado con la nueva lista sin el punto eliminado
+    setlistapuntos(nuevaLista);
+  };
+
   return (
  
 
@@ -64,7 +75,7 @@ function App() {
                 <th scope='row'>{index}</th>
                 <td>{point.xRelativeToDiv}</td>
                 <td>{point.yRelativeToDiv}</td>
-                <td> <button type="button" class="btn btn-warning">Borrar punto</button> </td>
+                <td> <button type="button" onClick={() => handleBorrarPunto(index)} class="btn btn-warning">Borrar punto</button> </td>
               </tr>
 
             ))}
