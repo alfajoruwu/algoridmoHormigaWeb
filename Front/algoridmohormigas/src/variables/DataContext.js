@@ -6,11 +6,9 @@ export function DataContextProvider(props) {
  
   const [listapuntos,setlistapuntos] = useState([]);
   const [matrizAdya, setmatrizAdya] = useState([[]]);
-
   const [matrizFer,setmatrizFer] = useState([[]]);
 
   const valorFermona = useState(1);
-
 
   return (
     <DataContext.Provider value={ {valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
@@ -29,3 +27,7 @@ export function DataContextProvider(props) {
 //formas de llamarlo, la mas facil usar tal cual las variables que exportas:
 // {contextData.setContextData(99)}
 // {contextData.contextData}
+
+//forma de llamarlo 2
+//     const {valorFermona} = useContext(DataContext);
+// llamar la variable del datacontext y usarlo tal cual
