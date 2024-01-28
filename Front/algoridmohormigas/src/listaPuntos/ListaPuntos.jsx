@@ -33,8 +33,8 @@ export const ListaPuntos = () => {
               //<div key={index}>{`X: ${point.xRelativeToDiv}, Y: ${point.yRelativeToDiv}`}</div>
               <tr>
                 <th scope='row'>{index}</th>
-                <td>{point.xRelativeToDiv}</td>
-                <td>{point.yRelativeToDiv}</td>
+                <td>{point.x}</td>
+                <td>{point.y}</td>
                 <td> <button type="button" onClick={() => handleBorrarPunto(index)} class="btn btn-warning">Borrar punto</button> </td>
               </tr>
 
