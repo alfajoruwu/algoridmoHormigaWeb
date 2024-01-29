@@ -42,8 +42,6 @@ const Canva = () => {
 
     window.addEventListener('resize', handleResize);
 
-    
-
     return () => {
       
       window.removeEventListener('resize', handleResize);
@@ -68,8 +66,32 @@ const Canva = () => {
         ))
       ))
     )
+
+    dibujar();
     
   }, [listapuntos, setmatrizAdya]);
+
+
+  const dibujar = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    
+
+    //limpiar canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+    listapuntos.map((punto, index) => (
+      context.beginPath(),
+      context.arc(punto.x, punto.y, 2, 0, 2 * Math.PI),
+      context.fillStyle = "black",
+      context.fill(),
+      context.closePath()
+    ));
+
+ 
+  }
+
 
   // funciones
 
@@ -77,20 +99,13 @@ const Canva = () => {
     const canvas = canvasRef.current;
 
     const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const x = Math.floor(event.clientX - rect.left);
+    const y = Math.floor(event.clientY - rect.top);
 
-    console.log(`Clicked at position ${x}, ${y} on the canvas`);
-
-    const context = canvas.getContext('2d');
-    context.fillStyle = 'red';
-    context.fillRect(0, 0, divSize.width, divSize.height);
-
+    
     const newClick = { x, y };
-    console.log(newClick);
     setlistapuntos([...listapuntos, newClick]);
-
-    console.log(listapuntos)
+  
   };
 
   return (
