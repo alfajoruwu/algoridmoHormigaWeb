@@ -22,6 +22,11 @@ export const MostrarResultados = () => {
                 <td>0</td>
                 </tr>
 
+                <tr>
+                <th scope="row">Iteracion actual</th>
+                <td>0</td>
+                </tr>
+
             </tbody>
         </table>
     

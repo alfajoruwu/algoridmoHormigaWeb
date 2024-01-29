@@ -27,7 +27,9 @@ function App() {
       {/* titulo y precentacion */}
       <div class= "row">
         <h1>Algoridmo de hormigas</h1>
-        <h9>para usarlo has click en el recuadro para poner puntos, y configura los parametros a gusto</h9>
+        <h9>
+          Configura parámetros y añade puntos en el mapa para encontrar la ruta más corta.
+        </h9>
       </div>
 
       {/*app funcionando | opciones configurables */}

@@ -86,6 +86,7 @@ const Canva = () => {
       ))
     ));
 
+    //dibujar puntos
     listapuntos.map((punto, index) => (
       context.beginPath(),
       context.arc(punto.x, punto.y, 2, 0, 2 * Math.PI),
