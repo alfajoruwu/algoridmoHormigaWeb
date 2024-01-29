@@ -11,6 +11,8 @@ import { Datosiniciales } from './Formulario/Datosiniciales';
 import { BotonesAccion } from './Formulario/BotonesAccion';
 import { Ejecucion } from './Formulario/Ejecucion';
 import { BotonesEjecucion } from './Formulario/BotonesEjecucion';
+import { MostrarDatos } from './Datos/MostrarDatos';
+import { MostrarResultados } from './Datos/MostrarResultados';
 
 function App() {
 
@@ -41,6 +43,18 @@ function App() {
           <BotonesEjecucion/>
         </div>
 
+      </div>
+
+      <div class= "row">
+        <div class="col">
+          <MostrarDatos/>
+
+        </div>
+
+        <div class="col">
+          <MostrarResultados/>
+        </div>
+        
       </div>
 
       <div class= "row">
