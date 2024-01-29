@@ -1,12 +1,16 @@
 
 import { useContext } from 'react';
 import './App.css';
-import Recuadrohormigas from './recuadroHormigas/Recuadrohormigas';
+
 import Canva from './nuevoRecuadro/Canva';
 import { DataContext } from './variables/DataContext';
 import { MatrizAdya } from './MatrizAdyacencia/MatrizAdya';
 import { MatrizFero } from './MatrizFeromonas/MatrizFero';
 import { ListaPuntos } from './listaPuntos/ListaPuntos';
+import { Datosiniciales } from './Formulario/Datosiniciales';
+import { BotonesAccion } from './Formulario/BotonesAccion';
+import { Ejecucion } from './Formulario/Ejecucion';
+import { BotonesEjecucion } from './Formulario/BotonesEjecucion';
 
 function App() {
 
@@ -30,21 +34,22 @@ function App() {
           <Canva/>
         </div>
 
-        <div class="col-5 text-center"  style={{ backgroundColor: 'gray' }} >
-          
+        <div class="col-5 text-center">
+          <Datosiniciales/>
+          <BotonesAccion/>
+          <Ejecucion/>
+          <BotonesEjecucion/>
         </div>
 
       </div>
 
-      {/* datos */}
       <div class= "row">
       
-        {/* lista de puntos */}
         <div class= "col">  
           <ListaPuntos/>
         </div>
 
-        {/* matrices */}
+      
         <div class="col">
           
           <div class="col">

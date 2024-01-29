@@ -34,17 +34,13 @@ const Canva = () => {
         setDivSize({
           width: divRef.current.offsetWidth,
           height: divRef.current.offsetHeight,
-        });
+        }) 
       }
     };
-
     handleResize();
-
     window.addEventListener('resize', handleResize);
-
     return () => {
-      
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize);      
     };
   }, []);
 
@@ -76,10 +72,19 @@ const Canva = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     
-
-    //limpiar canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
 
+    //dibujar lineas
+    listapuntos.map((punto1, index1) => (
+      listapuntos.map((punto2, index2) => (
+        context.beginPath(),
+        context.moveTo(punto1.x, punto1.y),
+        context.lineTo(punto2.x, punto2.y),
+        context.strokeStyle = "#9b9797",
+        context.stroke(),
+        context.closePath()
+      ))
+    ));
 
     listapuntos.map((punto, index) => (
       context.beginPath(),
