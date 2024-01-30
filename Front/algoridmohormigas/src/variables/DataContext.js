@@ -8,10 +8,25 @@ export function DataContextProvider(props) {
   const [matrizAdya, setmatrizAdya] = useState([[]]);
   const [matrizFer,setmatrizFer] = useState([[]]);
 
-  const valorFermona = useState(1);
+  const [valorFermona, setValorFermona] = useState(1);
+
+  const [valorAlfa, setValorAlfa] = useState(1);
+  const [valorBeta, setValorBeta] = useState(1);
+
+  const [canthormigas, setCanthormigas] = useState(10);
+
+  const [evaporacion, setEvaporacion] = useState(0.5);
+
+  const [iteraciones, setIteraciones] = useState(1);
+  const [iteracionactual, setIteracionactual] = useState(0);
+
+  const [mejorRuta, setMejorRuta] = useState([]);
+  const [mejorDistancia, setMejorDistancia] = useState(0);
+
+
 
   return (
-    <DataContext.Provider value={ {valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
+    <DataContext.Provider value={{mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
       {props.children}
     </DataContext.Provider>
   );
@@ -28,6 +43,6 @@ export function DataContextProvider(props) {
 // {contextData.setContextData(99)}
 // {contextData.contextData}
 
-//forma de llamarlo 2
+//forma de llamarlo 2 (recomendable)
 //     const {valorFermona} = useContext(DataContext);
 // llamar la variable del datacontext y usarlo tal cual

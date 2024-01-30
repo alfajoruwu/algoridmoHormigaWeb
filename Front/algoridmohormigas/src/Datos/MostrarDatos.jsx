@@ -1,6 +1,14 @@
 import React from 'react'
+import { useContext } from 'react';
+import { DataContext } from '../variables/DataContext';
+
 
 export const MostrarDatos = () => {
+  
+  const {evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona} = useContext(DataContext);
+  
+  
+  
   return (
 
     <div class="container">
@@ -12,32 +20,32 @@ export const MostrarDatos = () => {
             <tbody>
                 <tr>
                 <th scope="row">Cantidad de Hormigas</th>
-                <td>10</td>
+                <td>{canthormigas}</td>
                 </tr>
                 
                 <tr>
                 <th scope="row">Feromona inicial</th>
-                <td>1</td>
+                <td>{valorFermona}</td>
                 </tr>
 
                 <tr>
                 <th scope="row">Evaporacion</th>
-                <td>0.5</td>
+                <td>{evaporacion}</td>
                 </tr>
 
                 <tr>
                 <th scope="row">alpha</th>
-                <td>1</td>
+                <td>{valorAlfa}</td>
                 </tr>
 
                 <tr>
                 <th scope="row">beta</th>
-                <td>1</td>
+                <td>{valorBeta}</td>
                 </tr>
 
 
             </tbody>
-            </table>
+        </table>
     
     </div>
   
