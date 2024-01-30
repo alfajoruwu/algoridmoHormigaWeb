@@ -1,22 +1,16 @@
 
-import { useContext } from 'react';
 import './App.css';
-
 import Canva from './nuevoRecuadro/Canva';
-import { DataContext } from './variables/DataContext';
 import { MatrizAdya } from './MatrizAdyacencia/MatrizAdya';
 import { MatrizFero } from './MatrizFeromonas/MatrizFero';
 import { ListaPuntos } from './listaPuntos/ListaPuntos';
 import { Datosiniciales } from './Formulario/Datosiniciales';
-import { BotonesAccion } from './Formulario/BotonesAccion';
 import { Ejecucion } from './Formulario/Ejecucion';
 import { BotonesEjecucion } from './Formulario/BotonesEjecucion';
 import { MostrarDatos } from './Datos/MostrarDatos';
 import { MostrarResultados } from './Datos/MostrarResultados';
 
 function App() {
-
-  const contextData = useContext(DataContext)
 
 
   return (
@@ -40,7 +34,7 @@ function App() {
 
         <div class="col-5 text-center">
           <Datosiniciales/>
-          <BotonesAccion/>
+          
           <Ejecucion/>
           <BotonesEjecucion/>
         </div>

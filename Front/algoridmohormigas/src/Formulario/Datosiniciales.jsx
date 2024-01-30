@@ -5,7 +5,7 @@ import { DataContext } from '../variables/DataContext';
 
 export const Datosiniciales = () => {
   
-  const {evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona} = useContext(DataContext);
+  const { setEvaporacion, setCanthormigas, setValorBeta, setValorAlfa,setValorFermona} = useContext(DataContext);
   
 
     

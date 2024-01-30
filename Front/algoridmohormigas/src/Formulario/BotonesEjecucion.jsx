@@ -1,6 +1,22 @@
 import React from 'react'
+import { useContext } from 'react';
+import { DataContext } from '../variables/DataContext';
+
+
 
 export const BotonesEjecucion = () => {
+  
+  const {matrizFer,setmatrizFer} = useContext(DataContext);
+
+  const cambiarFeromona = () => {
+    const nuevaMatriz = [...matrizFer];
+    nuevaMatriz[0][1] = 999;
+
+    setmatrizFer(nuevaMatriz);
+    console.log("cambiar feromona");
+  }
+  
+  
   return (
     <div class="container">
 
@@ -10,7 +26,7 @@ export const BotonesEjecucion = () => {
             </div>   
 
             <div class="col">
-                <button type="button mb-3" class="btn btn-primary">avanzar iteracion</button>
+                <button type="button mb-3" class="btn btn-primary" onClick={cambiarFeromona}>avanzar iteracion</button>
             </div> 
 
             <div class="col">

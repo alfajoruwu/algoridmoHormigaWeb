@@ -19,7 +19,7 @@ const Canva = () => {
   const {setlistapuntos, listapuntos } = useContext(DataContext);
   const {matrizAdya,setmatrizAdya} = useContext(DataContext);
   const {matrizFer,setmatrizFer} = useContext(DataContext);
-  const valorFermona = useContext(DataContext);
+  const {valorFermona} = useContext(DataContext);
 
 
   function calculardistancia(x1,y1,x2,y2){
@@ -55,10 +55,11 @@ const Canva = () => {
       ))
     );
     
+    console.log(valorFermona);
     setmatrizFer(
       listapuntos.map((punto1, index1) => (
         listapuntos.map((punto2, index2) => (
-          {valorFermona}
+          valorFermona
         ))
       ))
     )

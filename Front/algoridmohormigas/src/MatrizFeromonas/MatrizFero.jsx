@@ -8,9 +8,8 @@ export const MatrizFero = () => {
   
 
     const {matrizFer} = useContext(DataContext);
-    const {valorFermona} = useContext(DataContext);
 
-
+    console.log(matrizFer);
 
     return (
     <div>
@@ -21,7 +20,7 @@ export const MatrizFero = () => {
         {matrizFer.map((lista,index) => (
           <tr>
           {lista.map((elemento,index) => (
-            <td> {valorFermona}</td>
+            <td> {elemento}</td>
           ) )}
 
           </tr>
