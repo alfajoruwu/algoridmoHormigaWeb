@@ -9,7 +9,7 @@ export const BotonesEjecucion = () => {
   const {canvasGlobal,aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
 
   useEffect(() => {
-   // dibujarResultados();
+   dibujarResultados();
   }, [mejorDistancia, mejorRuta]);
   
   
@@ -190,7 +190,7 @@ export const BotonesEjecucion = () => {
       if (elemento.distanciaRecorrida < mejorDistancia) {
         setMejorDistancia(elemento.distanciaRecorrida);
         setMejorRuta(elemento.caminoRecorrido);
-        dibujarResultados();
+        
       }
 
 
