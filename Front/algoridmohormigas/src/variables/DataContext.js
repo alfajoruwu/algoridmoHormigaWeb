@@ -24,10 +24,10 @@ export function DataContextProvider(props) {
   const [mejorDistancia, setMejorDistancia] = useState(Infinity);
 
   const [aprendisaje,setAprendisaje] = useState(1);
-
+  const [canvasGlobal, setCanvasGlobal] = useState(null);
 
   return (
-    <DataContext.Provider value={{aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
+    <DataContext.Provider value={{canvasGlobal, setCanvasGlobal,aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
       {props.children}
     </DataContext.Provider>
   );

@@ -20,6 +20,7 @@ const Canva = () => {
   const {matrizAdya,setmatrizAdya} = useContext(DataContext);
   const {matrizFer,setmatrizFer} = useContext(DataContext);
   const {valorFermona} = useContext(DataContext);
+  const {canvasGlobal, setCanvasGlobal} = useContext(DataContext);
 
 
   function calculardistancia(x1,y1,x2,y2){
@@ -70,6 +71,7 @@ const Canva = () => {
 
   const dibujar = () => {
     const canvas = canvasRef.current;
+    setCanvasGlobal(canvas);
     const context = canvas.getContext('2d');
     
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -80,7 +82,7 @@ const Canva = () => {
         context.beginPath(),
         context.moveTo(punto1.x, punto1.y),
         context.lineTo(punto2.x, punto2.y),
-        context.strokeStyle = "#9b9797",
+        context.strokeStyle = "#b8bdbe46",
         context.stroke(),
         context.closePath()
       ))
@@ -94,10 +96,10 @@ const Canva = () => {
       context.fill(),
       context.closePath()
     ));
-
  
   }
 
+  
 
   // funciones
 

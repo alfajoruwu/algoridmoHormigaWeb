@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
 import { useContext } from 'react';
 import { DataContext } from '../variables/DataContext';
 
@@ -6,8 +6,12 @@ import { DataContext } from '../variables/DataContext';
 
 export const BotonesEjecucion = () => {
   
-  const {aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
+  const {canvasGlobal,aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
 
+  useEffect(() => {
+   // dibujarResultados();
+  }, [mejorDistancia, mejorRuta]);
+  
   
   function elegirElementoConProbabilidad(elementos, probabilidades) {
     // Verificar si las listas tienen la misma longitud
@@ -108,11 +112,66 @@ export const BotonesEjecucion = () => {
     
     //añadir inicial a la lista
     caminoRecorrido.push(0);
-    console.log(distanciaRecorrida);
+    
+    //console.log(distanciaRecorrida);
+    
     //retorna la lista del camino recorrido
     return {caminoRecorrido,distanciaRecorrida};
   };
   
+  const dibujarPuntos = () => {
+    if (canvasGlobal) {
+      
+    const context = canvasGlobal.getContext('2d');
+    
+    context.clearRect(0, 0, canvasGlobal.width, canvasGlobal.height);
+
+    //dibujar lineas
+    listapuntos.map((punto1, index1) => (
+      listapuntos.map((punto2, index2) => (
+        context.beginPath(),
+        context.moveTo(punto1.x, punto1.y),
+        context.lineTo(punto2.x, punto2.y),
+        context.strokeStyle = "#b8bdbe46",
+        context.stroke(),
+        context.closePath()
+      ))
+    ));
+
+    //dibujar puntos
+    listapuntos.map((punto, index) => (
+      context.beginPath(),
+      context.arc(punto.x, punto.y, 2, 0, 2 * Math.PI),
+      context.fillStyle = "black",
+      context.fill(),
+      context.closePath()
+    ));
+    }
+  }
+
+
+  const dibujarResultados = () => {
+    if (canvasGlobal) {
+    
+    const context = canvasGlobal.getContext('2d');
+  
+    //dibujar mejor ruta
+    dibujarPuntos();
+    
+    context.beginPath();
+    context.moveTo(listapuntos[mejorRuta[0]], listapuntos[mejorRuta[0]+1]);
+    mejorRuta.map((elemento,index) => {
+      context.lineTo(listapuntos[elemento].x, listapuntos[elemento].y);
+    });
+    context.strokeStyle = "blue";
+    context.stroke();
+    context.closePath();
+
+    
+  }
+    
+
+  }
   
   const realizarIteracion = () => {
     let listaCaminos = [];
@@ -131,6 +190,7 @@ export const BotonesEjecucion = () => {
       if (elemento.distanciaRecorrida < mejorDistancia) {
         setMejorDistancia(elemento.distanciaRecorrida);
         setMejorRuta(elemento.caminoRecorrido);
+        dibujarResultados();
       }
 
 
@@ -144,7 +204,7 @@ export const BotonesEjecucion = () => {
       });
     });
 
-
+    
     setIteracionactual(prevIteracion => prevIteracion + 1);
 
   };
