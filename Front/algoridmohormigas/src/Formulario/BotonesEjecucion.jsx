@@ -126,31 +126,36 @@ export const BotonesEjecucion = () => {
     
     
     listaCaminos.map((elemento,index) => {
+      //camino mas corto
+
+      if (elemento.distanciaRecorrida < mejorDistancia) {
+        setMejorDistancia(elemento.distanciaRecorrida);
+        setMejorRuta(elemento.caminoRecorrido);
+      }
+
 
       elemento.caminoRecorrido.map((elemento2,index2) => {
-        console.log(elemento.caminoRecorrido);
         
         if (index2 !== elemento.caminoRecorrido.length - 1) {
-          
-          console.log(matrizFer[elemento.caminoRecorrido[index2]][elemento.caminoRecorrido[index2+1]]);
-          
-          
-          let aporte = matrizFer[elemento.caminoRecorrido[index2]][elemento.caminoRecorrido[index2+1]]+(aprendisaje / elemento.distanciaRecorrida)
-          console.log(aporte);
-          
+          let aporte = matrizFer[elemento.caminoRecorrido[index2]][elemento.caminoRecorrido[index2+1]]+(aprendisaje / elemento.distanciaRecorrida)          
           cambiarFeromona(elemento.caminoRecorrido[index2],elemento.caminoRecorrido[index2+1],aporte)
-
         }
         
       });
     });
 
 
-
+    setIteracionactual(prevIteracion => prevIteracion + 1);
 
   };
 
+  const ejecucion = () => {
+    for (let i = 0; i < iteraciones; i++) {
+      realizarIteracion();
+      console.log("uw");
+    }
 
+  }
 
   const cambiarFeromona = (nodo1,nodo2,valor) => {
     const nuevaMatriz = [...matrizFer];
@@ -174,17 +179,17 @@ export const BotonesEjecucion = () => {
   return (
     <div class="container">
 
+
+
+
         <div class="row mb-3">
             <div class="col">
                 <button type="button mb-3" class="btn btn-primary" onClick={realizarIteracion}>avanzar un nodo</button>
             </div>   
 
+  
             <div class="col">
-                <button type="button mb-3" class="btn btn-primary" onClick={cambiarFeromona}>avanzar iteracion</button>
-            </div> 
-
-            <div class="col">
-                <button type="button mb-3" class="btn btn-primary">completar iteraciones</button>
+                <button type="button mb-3" class="btn btn-primary" onClick={ejecucion}>completar iteraciones</button>
             </div>  
            
         </div>

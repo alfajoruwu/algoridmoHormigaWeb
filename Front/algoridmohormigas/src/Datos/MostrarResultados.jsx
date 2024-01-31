@@ -1,6 +1,15 @@
 import React from 'react'
 
+
+import { useContext } from 'react';
+import { DataContext } from '../variables/DataContext';
+
+
 export const MostrarResultados = () => {
+  
+  const {aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
+
+  
   return (
 
     <div class="container">
@@ -14,7 +23,7 @@ export const MostrarResultados = () => {
                 
                 <tr>
                 <th scope="row">Mejor distancia</th>
-                <td>0</td>
+                <td>{mejorDistancia}</td>
                 </tr>
 
                 <tr>
@@ -24,7 +33,7 @@ export const MostrarResultados = () => {
 
                 <tr>
                 <th scope="row">Iteracion actual</th>
-                <td>0</td>
+                <td>{iteracionactual}</td>
                 </tr>
 
             </tbody>

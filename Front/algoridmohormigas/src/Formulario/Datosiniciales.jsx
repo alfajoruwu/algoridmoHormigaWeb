@@ -5,7 +5,7 @@ import { DataContext } from '../variables/DataContext';
 
 export const Datosiniciales = () => {
   
-  const { setEvaporacion, setCanthormigas, setValorBeta, setValorAlfa,setValorFermona} = useContext(DataContext);
+  const {aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
   
 
     
@@ -25,7 +25,7 @@ export const Datosiniciales = () => {
 
         var evaporacion = document.getElementById('evapora').value
         if (evaporacion === "") {
-            evaporacion = 0.5
+            evaporacion = 0.01
         }
         setEvaporacion(evaporacion);
 
@@ -40,6 +40,28 @@ export const Datosiniciales = () => {
             beta = 1
         }
         setValorBeta(beta);
+
+        var iteraciones = document.getElementById('iteracionescoso').value
+        if (iteraciones === "") {
+            iteraciones = 1
+        }
+        setIteraciones(iteraciones);
+    }
+
+    const reiniciarferomonas = () => {
+        //asigingar matriz fer con el valor de la feromona
+        var matriz = []
+        for (var i = 0; i < matrizFer.length; i++) {
+            var lista = []
+            for (var j = 0; j < matrizFer.length; j++) {
+                lista.push(1)
+            }
+            matriz.push(lista)
+        }
+        setmatrizFer(matriz)
+        setIteraciones(0)
+        setIteracionactual(0)
+        setMejorDistancia(Infinity)
 
     }
 
@@ -60,7 +82,7 @@ export const Datosiniciales = () => {
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Evaporacion</span>
-            <input id='evapora' type="text" class="form-control" placeholder="0.5" aria-label="Username" aria-describedby="basic-addon1"></input>
+            <input id='evapora' type="text" class="form-control" placeholder="0.01" aria-label="Username" aria-describedby="basic-addon1"></input>
         </div>
 
         <div class="input-group mb-3">
@@ -73,11 +95,27 @@ export const Datosiniciales = () => {
             <input id='beta' type="text" class="form-control" placeholder="1" aria-label="Username" aria-describedby="basic-addon1"></input>
         </div>
 
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Iteraciones</span>
+            <input id='iteracionescoso' type="text" class="form-control" placeholder="1" aria-label="Username" aria-describedby="basic-addon1"></input>
+        </div>
+        
+
+        
+        <div class="row mb-3">
+            <div class="col">
+                <button type="button mb-3" class="btn btn-primary" onClick={reiniciarferomonas}>Reiniciar</button>
+            </div>    
+        </div>
+        
         <div class="row mb-3">
             <div class="col">
                 <button type="button mb-3" class="btn btn-primary" onClick={valoresinput}>Aplicar cambios</button>
             </div>    
         </div>
+
+        
 
 
     </div>

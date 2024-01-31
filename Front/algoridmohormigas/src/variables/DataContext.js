@@ -15,13 +15,13 @@ export function DataContextProvider(props) {
 
   const [canthormigas, setCanthormigas] = useState(10);
 
-  const [evaporacion, setEvaporacion] = useState(0.5);
+  const [evaporacion, setEvaporacion] = useState(0.01);
 
   const [iteraciones, setIteraciones] = useState(1);
   const [iteracionactual, setIteracionactual] = useState(0);
 
   const [mejorRuta, setMejorRuta] = useState([]);
-  const [mejorDistancia, setMejorDistancia] = useState(0);
+  const [mejorDistancia, setMejorDistancia] = useState(Infinity);
 
   const [aprendisaje,setAprendisaje] = useState(1);
 
