@@ -55,7 +55,6 @@ const Canva = () => {
       ))
     );
     
-    console.log(valorFermona);
     setmatrizFer(
       listapuntos.map((punto1, index1) => (
         listapuntos.map((punto2, index2) => (

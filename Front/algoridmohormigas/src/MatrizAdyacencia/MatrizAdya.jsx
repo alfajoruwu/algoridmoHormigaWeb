@@ -5,7 +5,7 @@ import { DataContext } from '../variables/DataContext';
 
 export const MatrizAdya = () => {
   
-  const {matrizAdya,setmatrizAdya} = useContext(DataContext);
+  const {mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
 
   
   

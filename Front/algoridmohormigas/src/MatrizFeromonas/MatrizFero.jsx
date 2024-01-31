@@ -9,7 +9,7 @@ export const MatrizFero = () => {
 
     const {matrizFer} = useContext(DataContext);
 
-    console.log(matrizFer);
+    
 
     return (
     <div>
