@@ -23,10 +23,11 @@ export function DataContextProvider(props) {
   const [mejorRuta, setMejorRuta] = useState([]);
   const [mejorDistancia, setMejorDistancia] = useState(0);
 
+  const [aprendisaje,setAprendisaje] = useState(1);
 
 
   return (
-    <DataContext.Provider value={{mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
+    <DataContext.Provider value={{aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer } }>
       {props.children}
     </DataContext.Provider>
   );

@@ -6,7 +6,7 @@ import { DataContext } from '../variables/DataContext';
 
 export const BotonesEjecucion = () => {
   
-  const {mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
+  const {aprendisaje,setAprendisaje,mejorDistancia, setMejorDistancia,mejorRuta, setMejorRuta,iteracionactual, setIteracionactual,iteraciones, setIteraciones,evaporacion, setEvaporacion,canthormigas, setCanthormigas,valorBeta, setValorBeta,valorAlfa, setValorAlfa,setValorFermona,valorFermona ,listapuntos, setlistapuntos , matrizAdya,setmatrizAdya ,matrizFer,setmatrizFer} = useContext(DataContext);
 
   
   function elegirElementoConProbabilidad(elementos, probabilidades) {
@@ -113,17 +113,39 @@ export const BotonesEjecucion = () => {
     return {caminoRecorrido,distanciaRecorrida};
   };
   
+  
   const realizarIteracion = () => {
     let listaCaminos = [];
     
     for (let i = 0; i < canthormigas; i++) {
       let camino = hormiga();
       listaCaminos.push(camino);
-      
     }
 
+    evaporarFeromona();
+    
+    
+    listaCaminos.map((elemento,index) => {
 
-    console.log(listaCaminos);  
+      elemento.caminoRecorrido.map((elemento2,index2) => {
+        console.log(elemento.caminoRecorrido);
+        
+        if (index2 !== elemento.caminoRecorrido.length - 1) {
+          
+          console.log(matrizFer[elemento.caminoRecorrido[index2]][elemento.caminoRecorrido[index2+1]]);
+          
+          
+          let aporte = matrizFer[elemento.caminoRecorrido[index2]][elemento.caminoRecorrido[index2+1]]+(aprendisaje / elemento.distanciaRecorrida)
+          console.log(aporte);
+          
+          cambiarFeromona(elemento.caminoRecorrido[index2],elemento.caminoRecorrido[index2+1],aporte)
+
+        }
+        
+      });
+    });
+
+
 
 
   };
@@ -135,6 +157,18 @@ export const BotonesEjecucion = () => {
     nuevaMatriz[nodo1][nodo2] = valor;
     setmatrizFer(nuevaMatriz);
   }
+
+  const evaporarFeromona = () => {
+    const nuevaMatriz = [...matrizFer];
+    
+    nuevaMatriz.forEach((lista,index1) => {
+      lista.forEach((elemento,index2) => {
+        nuevaMatriz[index1][index2] = elemento * (1-evaporacion);
+      });
+    });
+    setmatrizFer(nuevaMatriz);
+
+  };
   
   
   return (
